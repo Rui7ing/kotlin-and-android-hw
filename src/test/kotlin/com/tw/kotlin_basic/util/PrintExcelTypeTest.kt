@@ -32,7 +32,7 @@ class PrintExcelTypeTest {
 
 
     @Test
-    fun throwExceptionIfParameterIsZero() {
+    fun `throw exception if parameter is zero`() {
         Assertions.assertThrows(IllegalArgumentException::class.java) {
             printExcelType.getCharacterList(0, 1)
         }
@@ -42,7 +42,7 @@ class PrintExcelTypeTest {
     }
 
     @Test
-    fun throwExceptionIfCharacterMoreThanZZZ() {
+    fun `throw exception if character is large than ZZZ`() {
         Assertions.assertThrows(IllegalArgumentException::class.java) {
             printExcelType.getCharacter(26*26*26+26*26+26)
         }
