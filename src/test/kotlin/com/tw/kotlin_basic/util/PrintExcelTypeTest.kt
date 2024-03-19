@@ -16,9 +16,28 @@ class PrintExcelTypeTest {
     }
 
     @Test
-    fun throwExceptionIfNumberIsZero() {
+    fun `(1, 1) = A`() {
+        Assertions.assertEquals(listOf("A"), printExcelType.getCharacterList(1, 1))
+    }
+
+    @Test
+    fun `(1, 2) = A, B`() {
+        Assertions.assertEquals(listOf("A", "B"), printExcelType.getCharacterList(1, 2))
+    }
+
+    @Test
+    fun `(26, 3) = Z, AA, AB`() {
+        Assertions.assertEquals(listOf("Z", "AA", "AB"), printExcelType.getCharacterList(26, 3))
+    }
+
+
+    @Test
+    fun throwExceptionIfParameterIsZero() {
         Assertions.assertThrows(IllegalArgumentException::class.java) {
-            printExcelType.getCharacter(0)
+            printExcelType.getCharacterList(0, 1)
+        }
+        Assertions.assertThrows(IllegalArgumentException::class.java) {
+            printExcelType.getCharacterList(1, 0)
         }
     }
 
